@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.canvas-holder {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book {
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    background-color: white;
+}
+
+/* 개별 페이지 스타일 */
+.page {
+    background-color: white;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.page-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.page-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 이미지 비율 유지 */
+}
+
+/* 하단 컨트롤 */
+.controls {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #555;
+}
+
+/* 모바일 대응: 작은 화면에서는 책 크기 조절 */
+@media (max-width: 768px) {
+    .canvas-holder {
+        height: 60vh;
+    }
+}
+/* 페이지 번호 스타일 */
+.page-num {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+}
+
+/* 마지막 페이지 오버레이 */
+.last-page-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* 살짝 어둡게 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.page:hover .last-page-overlay {
+    opacity: 1; /* 마우스를 올리면 버튼이 나타남 */
+}
+
+.retry-btn {
+    background: #ff4757 !important;
+    color: white;
+    font-weight: bold;
+    padding: 15px 30px !important;
+    border-radius: 50px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
